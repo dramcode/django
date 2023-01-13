@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  django:
+    env_file:
+      - ./.envs/.envs
+    build: 
+      context: .
+    image: pyjango_image
+    container_name: pyjango_container
+    volumes:
+      - .:/home/pyjango
+    ports:
+      - 8000:8000
+    command: "runserver 0.0.0.0:8000"
